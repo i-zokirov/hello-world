@@ -10,6 +10,7 @@ const numCPUs = process.env.NODE_ENV === 'production' ? os.cpus().length : 1;
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   await app.listen(PORT);
+  console.info(`Application is running on: ${PORT}`);
 }
 
 if (cluster.isPrimary) {
